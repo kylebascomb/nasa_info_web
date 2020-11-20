@@ -1,0 +1,98 @@
+
+{% extends 'base.html' %}
+{% block content %}
+    <h1>{% block title %} Mars Weather Report{% endblock %}</h1>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col" class ="text-center">Time</th>
+                <th scope="col" class ="text-center">Temperature (°C)</th>
+                <th scope="col" class ="text-center">Wind Speed (m/s)</th>
+                <th scope="col" class ="text-center">Pressure (Pa)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <td>
+                  <table>
+                      <thead>
+                        <tr>
+                            <th scope = "col">Earth Date</th>
+                            <th scope = "col"> Martian Sol</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for weather in weather_list %}
+                        <tr>
+                        <td> {{ (weather['first_formatted'])}} </td>
+                        <td>{{ (weather['sol_id']) }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                  </table>
+              </td>
+              <td>
+                  <table>
+                      <thead>
+                          <tr>
+                              <th scope = "col"> Average </th>
+                              <th scope = "col"> Min</th>
+                              <th scope = "col"> Max </th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                        {% for weather in weather_list %}
+                        <tr>
+                        <td> {{ (weather['average_temp']) }} </td>
+                        <td>{{ (weather['min_temp']) }}</td>
+                        <td>{{ (weather['max_temp']) }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                  </table>
+              </td>
+              <td>
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope = "col"> Average </th>
+                            <th scope = "col"> Min</th>
+                            <th scope = "col"> Max </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      {% for weather in weather_list %}
+                      <tr>
+                      <td> {{ (weather['average_wind']) }} </td>
+                      <td>{{ (weather['min_wind']) }}</td>
+                      <td>{{ (weather['max_wind']) }}</td>
+                      </tr>
+                      {% endfor %}
+                  </tbody>
+                </table>
+            </td>
+            <td>
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope = "col"> Average </th>
+                            <th scope = "col"> Min</th>
+                            <th scope = "col"> Max </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      {% for weather in weather_list %}
+                      <tr>
+                      <td> {{ (weather['average_pressure'])}} </td>
+                      <td>{{ (weather['min_pressure'])}}</td>
+                      <td>{{ (weather['max_pressure'])}}</td>
+                      </tr>
+                      {% endfor %}
+                  </tbody>
+                </table>
+            </td>
+            </tbody>
+          </table>
+
+ {% endblock %}
+
+
